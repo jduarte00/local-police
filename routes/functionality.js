@@ -38,7 +38,6 @@ funcRoutes.get("/controlPanel", ensureLogin.ensureLoggedIn(),(req, res, next) =>
   const userId = req.user._id;
   User.findById(userId).populate('reportedIncidents').then(user => {
     let incidents = user.reportedIncidents;
-    console.log(incidents, "estous osn los incidentes");
     res.render("control-panel", {incidents});
   })
 
