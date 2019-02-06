@@ -6,7 +6,7 @@ const userSchema = new Schema({
     password: String,
     mail: String,
     //Not sure about this...
-   reportedIncidents: [String] 
+   reportedIncidents: [{type: Schema.Types.ObjectId, ref: 'Incident'}], 
 }, {
     timestamps:{
         createdAt: "created_at"
