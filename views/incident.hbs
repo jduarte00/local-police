@@ -1,0 +1,30 @@
+<form action="/newIncident" method="post">
+  <div class="">
+    <label for="location">Location</label>
+    <input type="text" name="location" value="">
+  </div>
+
+  <div class="">
+    <label for="type">Tipo de Delito</label>
+    <input type="text" name="type" value="">
+  </div>
+  <div class="">
+    <label for="oficialNumber">Numero de Denuncia</label>
+    <input type="text" name="oficialNumber" value="">
+  </div>
+  <div class="">
+    <label for="date">Fecha de Delito</label>
+    <input type="date" name="date" value="">
+  </div>
+
+  {{#if message}}
+    <div class="error-message">
+      {{message}}
+    </div>
+  {{/if}}
+  
+  <div class="">
+    <input type="submit" value="Ingresa">
+  </div>
+
+</form>
