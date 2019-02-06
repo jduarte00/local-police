@@ -18,7 +18,7 @@ const User = require('./models/User');
 
 
 mongoose
-  .connect('mongodb://localhost/local-police', {useNewUrlParser: true})
+  .connect(process.env.MONGODBCLOUD, {useNewUrlParser: true})
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })
@@ -108,8 +108,10 @@ app.locals.title = 'Express - Generated with IronGenerator';
 
 const index = require('./routes/index');
 const auth = require('./routes/auth');
+const func = require('./routes/functionality');
 app.use('/', index);
 app.use('/', auth);
+app.use('/', func);
 
 
 module.exports = app;
