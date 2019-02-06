@@ -14,12 +14,14 @@ funcRoutes.post("/newIncident", (req, res, next)=>{
     const type = req.body.type;
     const oficialNumber = req.body.oficialNumber;
     const date = req.body.date;
+    const additionalDetails = req.body.additionalDetails;
     const userID = req.user._id;
     const newIncident = new Incident({
       location,
       type,
       oficialNumber,
-      date
+      date,
+      additionalDetails
     });
     newIncident.save().then(incident=>{
       const incidentID = incident._id;

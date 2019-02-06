@@ -6,6 +6,7 @@ const incidentSchema = new Schema({
     type: String,
     oficialNumber: String,
     date: Date,
+    additionalDetails: String,
     socialGrade: 0
 }, {
     timestamps:{
