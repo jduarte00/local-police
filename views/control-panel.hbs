@@ -1,2 +1,5 @@
-<p>{{incidents}}</p>
-de la berga
+<ul>
+    {{#each incidents}}
+        <li>{{this.location}}</li>
+    {{/each}}
+</ul>
