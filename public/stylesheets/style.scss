@@ -1,8 +1,41 @@
+@import url('https://fonts.googleapis.com/css?family=Archivo');
+
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  padding: 0px;
+  margin: 0px;
+  font-size: 1rem;
+  font-family: 'Archivo', sans-serif;
 }
 
-a {
-  color: #00B7FF;
+.navbar {
+  background-color: #06213C ;
+  color: #ffffff;
 }
+
+.page-footer {
+  background-color: #474D53;
+  color: #ffffff;
+}
+
+.container{
+  margin-top: 50px;
+}
+
+  
+body, html {
+  height: 95%;
+  
+}
+
+.menu-lat{
+  background-color: #21C28A;
+}
+span{
+  color: #06213C
+}
+.a-nav{
+  color: black
+}
+
+
+
