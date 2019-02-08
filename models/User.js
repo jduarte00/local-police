@@ -7,6 +7,8 @@ const userSchema = new Schema({
     mail: String,
     //Not sure about this...
    reportedIncidents: [{type: Schema.Types.ObjectId, ref: 'Incident'}], 
+   imgName: String,
+   imgPath: String
 }, {
     timestamps:{
         createdAt: "created_at"
