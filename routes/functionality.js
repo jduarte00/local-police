@@ -43,4 +43,9 @@ funcRoutes.get("/controlPanel", ensureLogin.ensureLoggedIn(),(req, res, next) =>
 
 });
 
+funcRoutes.get("/changeProfile", ensureLogin.ensureLoggedIn(), (req,res,next) => {
+  const user = req.user;
+  res.render("func/profile", {user});
+})
+
 module.exports = funcRoutes;
