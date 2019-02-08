@@ -64,3 +64,5 @@ typings/
 .vscode
 views/private.hbs
 todo.md
+public/stylesheets/style.css
+public/stylesheets/style.css.map
