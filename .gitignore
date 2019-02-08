@@ -63,3 +63,4 @@ typings/
 # stupid vscode config files
 .vscode
 views/private.hbs
+todo.md
