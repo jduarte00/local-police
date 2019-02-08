@@ -46,6 +46,14 @@ funcRoutes.get("/controlPanel", ensureLogin.ensureLoggedIn(),(req, res, next) =>
 funcRoutes.get("/changeProfile", ensureLogin.ensureLoggedIn(), (req,res,next) => {
   const user = req.user;
   res.render("func/profile", {user});
-})
+});
+
+funcRoutes.get("/incidentes/view/:id", ensureLogin.ensureLoggedIn(), (req, res, next) => {
+  const libroID = req.params.id;
+  Incident.findById(libroID).then(incident=>{
+    res.render("func/incident-detail", {incident});
+  })
+
+}); 
 
 module.exports = funcRoutes;
