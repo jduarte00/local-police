@@ -6,7 +6,8 @@ const Incident = require("../models/Incident");
 const User = require("../models/User");
 
 funcRoutes.get("/newIncident", ensureLogin.ensureLoggedIn(),(req, res, next) => {
-  res.render("func/incident.hbs");
+  const user = req.user;
+  res.render("func/incident.hbs",{user});
 });
 
 funcRoutes.post("/newIncident", (req, res, next)=>{
@@ -36,9 +37,10 @@ funcRoutes.post("/newIncident", (req, res, next)=>{
 
 funcRoutes.get("/controlPanel", ensureLogin.ensureLoggedIn(),(req, res, next) => {
   const userId = req.user._id;
+  const user = req.user;
   User.findById(userId).populate('reportedIncidents').then(user => {
     let incidents = user.reportedIncidents;
-    res.render("func/control-panel", {incidents});
+    res.render("func/control-panel", {incidents, user});
   })
 
 });
