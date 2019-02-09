@@ -46,8 +46,11 @@ authRoutes.post("/signup", (req, res, next) => {
       const newUser = new User({
         username,
         password: hashPass,
-        mail
+        mail,
+        imgName: "default",
+        imgPath: "https://i.imgur.com/IlaWOmm.jpg"
       });
+
 
       newUser.save(err => {
         if (err) {
