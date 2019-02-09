@@ -1,24 +1,39 @@
-<form action="/newIncident" method="post">
-  <div class="">
-    <label for="location">Location</label>
-    <input type="text" name="location" value="">
+<div class="offset-sm-3 ">
+  <div> 
+    <h2>Genera incidente</h2>
   </div>
+  <br>
+  <form action="/newIncident" method="post" class="form-inlin justify-content-center">
+    <div class="form-group row">
+      <label for="location" class="col-3 col-form-label">Location</label>
+        <div class="col-9">
+          <input type="text" name="location" value="">
+        </div>
+    </div>
 
-  <div class="">
-    <label for="type">Tipo de Delito</label>
-    <input type="text" name="type" value="">
+  <div class="form-group row">
+    <label for="type" class="col-3 col-form-label">Tipo de Delito</label>
+      <div class="col-9">
+        <input type="text" name="type" value="">
+      </div>
   </div>
-  <div class="">
-    <label for="oficialNumber">Numero de Denuncia</label>
-    <input type="text" name="oficialNumber" value="">
+  <div class="form-group row">
+    <label for="oficialNumber" class="col-3 col-form-label">Numero de Denuncia</label>
+      <div class ="col-9">
+        <input type="text" name="oficialNumber" value="">
+      </div>
   </div>
-  <div class="">
-    <label for="date">Fecha de Delito</label>
-    <input type="datetime-local" name="date" value="">
+  <div class="form-group row">
+    <label for="date" class="col-3 col-form-label">Fecha de Delito</label>
+        <div class ="col-9">
+          <input type="datetime-local" name="date" value="">
+       </div>
   </div>
-  <div class="">
-    <label for="additionalDetails">Descripción</label>
-    <textarea name="additionalDetails" id="" cols="30" rows="10">Descripción</textarea>
+  <div class="form-group row">
+    <label for="additionalDetails" class="col-3 col-form-label">Descripción</label>
+      <div class ="col-9">
+        <textarea name="additionalDetails" id="" cols="30" rows="10" placeholder="Descripción"></textarea>
+      </div>
   </div>
 
 
@@ -27,9 +42,14 @@
       {{message}}
     </div>
   {{/if}}
-  
-  <div class="">
-    <input type="submit" value="Ingresa">
+  <br>
+  <div class="form-group row col-8 btn-incident">
+    <input type="submit" value="Ingresa" class="btn btn-success">
+    <button class="btn btn-danger" href="/">Cancelar</button>
   </div>
+  
+    
+ 
 
 </form>
+</div>
