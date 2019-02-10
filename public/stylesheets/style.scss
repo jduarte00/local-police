@@ -8,7 +8,7 @@ body {
 }
 
 .navbar {
-  background-color: #06213C ;
+  background-color: #1E2C4C ;
   color: #ffffff;
 }
 
@@ -28,7 +28,7 @@ body, html {
 }
 
 .menu-lat{
-  background-color: #21C28A;
+  background-color: #669EFC;
 }
 span{
   color: #06213C
@@ -59,6 +59,24 @@ span{
 .navside{
   padding: 5px;
  }
+ .img-edit{
+  width: 200px;
+  height: 200px;
+  margin-left: 100px;
+  margin-top: 20px;
+  
+ }
+
+ .map-container{
+   display: flex;
+
+ }
+ .btn-edit{
+   padding-top: 50px;
+ }
+//  h2{
+//    text-align: center
+//  }
 
 
 
