@@ -1,3 +1,28 @@
-<p>
-    {{incident}}
-</p>
+<div class="">
+    <div>
+        <h2><strong>Ubicación</strong> </h2>
+        <p>{{incident.location}}</p>
+    </div>
+    <div class="row">   
+        <div class="col">
+         <img src="https://pbs.twimg.com/media/DTYYsGTVoAInIhX.jpg" alt="maps">
+        </div >
+        <div class="col">
+            
+            <div >
+                <p><strong>Tipo de Incidente</strong> </p>{{incident.type}}
+            </div>
+           <br>
+            <div> 
+                <p><strong>Fecha</strong> </p>{{incident.date}}
+            </div>
+            <br>
+            <div>
+                <p><strong> Descrpción</strong></p>{{incident.additionalDetails}}
+            </div>
+        </div>
+    </div>
+    <div class="btn-edit">
+        <button class="btn btn-primary " >Editar</button>
+    </div>
+</div>
