@@ -54,7 +54,7 @@ funcRoutes.get("/changeProfile", ensureLogin.ensureLoggedIn(), (req,res,next) =>
 
 funcRoutes.get("/changeImage", ensureLogin.ensureLoggedIn(), (req, res, next) => {
   const user = req.user;
-  res.render("func/change-picture");
+  res.render("func/change-picture", {user});
 });
 
 funcRoutes.post("/changeImage", ensureLogin.ensureLoggedIn(), uploadCloud.single("photo"), (req, res, next) => {
@@ -73,8 +73,9 @@ funcRoutes.post("/changeImage", ensureLogin.ensureLoggedIn(), uploadCloud.single
 
 funcRoutes.get("/incidentes/view/:id", ensureLogin.ensureLoggedIn(), (req, res, next) => {
   const libroID = req.params.id;
+  const user = req.user;
   Incident.findById(libroID).then(incident=>{
-    res.render("func/incident-detail", {incident});
+    res.render("func/incident-detail", {incident, user});
   })
 
 }); 
