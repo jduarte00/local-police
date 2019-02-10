@@ -1,7 +1,15 @@
-<h2>Cambia tu foto de perfil</h2>
-<form action="/changeImage" method="post" enctype="multipart/form-data">
-  <label>Foto de Perfil</label>
-  <input type="file" name="photo">
+<div class="offset-sm-3">
+  <h2>Cambia tu foto de perfil</h2>
+    <div class="form-group row">
+        <img class="img-edit"src="{{user.imgPath}}" alt="Profile Picture">
+    </div>
 
-  <input type="submit" value="SAVE">
-</form>
+  <form action="/changeImage" method="post" enctype="multipart/form-data" class="md-form">
+  <div>
+     <input  type="file" name="photo">
+  <br><br>
+     <input class="btn btn-success" type="submit" value="SAVE">
+     </div>
+  </form>
+</div>
+
