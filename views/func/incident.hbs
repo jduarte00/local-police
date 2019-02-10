@@ -1,4 +1,4 @@
-<div class="offset-sm-3 ">
+<div class="offset-sm-3">
   <div> 
     <h2>Genera incidente</h2>
   </div>
@@ -7,14 +7,14 @@
     <div class="form-group row">
       <label for="location" class="col-3 col-form-label">Location</label>
         <div class="col-9">
-          <input type="text" name="location" value="">
+          <input type="text" name="location" value=""required>
         </div>
     </div>
 
   <div class="form-group row">
     <label for="type" class="col-3 col-form-label">Tipo de Delito</label>
       <div class="col-9">
-        <input type="text" name="type" value="">
+        <input type="text" name="type" value="" required>
       </div>
   </div>
   <div class="form-group row">
@@ -26,13 +26,13 @@
   <div class="form-group row">
     <label for="date" class="col-3 col-form-label">Fecha de Delito</label>
         <div class ="col-9">
-          <input type="datetime-local" name="date" value="">
+          <input type="datetime-local" name="date" value="" required>
        </div>
   </div>
   <div class="form-group row">
     <label for="additionalDetails" class="col-3 col-form-label">Descripción</label>
       <div class ="col-9">
-        <textarea name="additionalDetails" id="" cols="30" rows="10" placeholder="Descripción"></textarea>
+        <textarea name="additionalDetails" id="" cols="30" rows="10" placeholder="Descripción" required></textarea>
       </div>
   </div>
 
@@ -45,7 +45,8 @@
   <br>
   <div class="form-group row col-8 btn-incident">
     <input type="submit" value="Enviar Incidente" class="btn btn-success">
-    <button class="btn btn-danger" href="/">Cancelar</button>
+    <a href="/" class="btn btn-danger" >Cancelar</a>
+   
 
   </div>
   
