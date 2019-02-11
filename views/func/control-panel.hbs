@@ -1,5 +1,20 @@
-<ul>
-    {{#each incidents}}
-        <li><a href="/incidentes/view/{{this._id}}">{{this.location}}</a></li>
+<h2>Mis Reportes</h2>
+
+<table class="table">
+  <thead class="thead-dark">
+    <tr >
+      <th scope="col-5">Lugar</th>
+      <th scope="col-5">Fecha y hora</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <tr>
+      {{#each incidents}}
+        <td><a href="/incidentes/view/{{this._id}}">{{this.location}}</a></td>
+       <td> {{this.date}}</td>
+   </tr>  
     {{/each}}
-</ul>
+   
+  </tbody>
+</table>
