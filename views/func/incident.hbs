@@ -1,26 +1,26 @@
 <div class="offset-sm-3">
   <div> 
-    <h2>Genera incidente</h2>
+    <h2>Generar Reporte</h2>
   </div>
   <br>
   <form action="/newIncident" method="post" class="form-inlin justify-content-center">
     <div class="form-group row">
-      <label for="location" class="col-3 col-form-label">Location</label>
+      <label for="location" class="col-3 col-form-label" >Location</label>
         <div class="col-9">
-          <input type="text" name="location" value=""required>
+          <input type="text" name="location" value="" placeholder="Ingresa la ubicación" required>
         </div>
     </div>
 
   <div class="form-group row">
     <label for="type" class="col-3 col-form-label">Tipo de Delito</label>
       <div class="col-9">
-        <input type="text" name="type" value="" required>
+        <input type="text" name="type" value="" placeholder="Selecciona un delito"  required>
       </div>
   </div>
   <div class="form-group row">
-    <label for="oficialNumber" class="col-3 col-form-label">Numero de Denuncia</label>
+    <label for="oficialNumber" class="col-3 col-form-label"  >Numero de Denuncia</label>
       <div class ="col-9">
-        <input type="text" name="oficialNumber" value="">
+        <input type="text" name="oficialNumber" value="" placeholder=" (opcional)">
       </div>
   </div>
   <div class="form-group row">
@@ -32,7 +32,7 @@
   <div class="form-group row">
     <label for="additionalDetails" class="col-3 col-form-label">Descripción</label>
       <div class ="col-9">
-        <textarea name="additionalDetails" id="" cols="30" rows="10" placeholder="Descripción" required></textarea>
+        <textarea name="additionalDetails" id="" cols="30" rows="10" placeholder="Descripción" maxlength="1000" required></textarea>
       </div>
   </div>
 
