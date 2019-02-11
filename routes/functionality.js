@@ -52,6 +52,26 @@ funcRoutes.get("/changeProfile", ensureLogin.ensureLoggedIn(), (req,res,next) =>
   res.render("func/profile", {user});
 });
 
+funcRoutes.post("/changeProfile", ensureLogin.ensureLoggedIn(), (req,res,next) =>{
+  const user = req.user;
+  const newUsername = req.body.username;
+  const newMail = req.body.mail;
+  
+  if (newUsername !== user.username || newMail!== user.mail){
+    User.findById(user._id).then(user =>{
+      user.username = newUsername;
+      user.mail = newMail;
+      user.save().then(user => {
+        res.render("func/profile", {message: "Información actualizada correctamente", user});
+      })
+    });
+  } else {
+    res.render("func/profile", {message: "No hiciste ningún cambio en tu información!", user});
+  }
+  
+  
+});
+
 funcRoutes.get("/changeImage", ensureLogin.ensureLoggedIn(), (req, res, next) => {
   const user = req.user;
   res.render("func/change-picture", {user});

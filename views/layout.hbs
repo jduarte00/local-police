@@ -8,39 +8,45 @@
   
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
   <link rel="stylesheet" href="/stylesheets/style.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-
-
-
-  
-<nav class="navbar navbar-expand-lg navbar-dark">
-  <a class="navbar-brand col-10 " href="/">LOCAL POLICE</a>
-  
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+<nav class="navbar navbar-expand-lg navbar-light navbar-dark">
+  <a class="navbar-brand" href="/">LOCAL POLICE</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-
-  <div class="collapse navbar-collapse " id="navbarSupportedContent">
-    <ul class="navbar-nav ">
-      
-     
-      {{#if user}}
+  <div class="collapse navbar-collapse" id="navbarText">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="/newIncident">Generar Reporte</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Pricing</a>
+      </li>
+    </ul>
+    <div class="navbar-text ">
+      <ul class="navbar-nav">
+        {{#if user}}
         <li class="nav-item">
-          <img class="img-profile" src="{{user.imgPath}}" alt="Profile User Pic">
+         <a href="/changeImage"> <img class="img-profile" src="{{user.imgPath}}" alt="Profile User Pic"></a>
+          {{!-- <a class="nav-link" href="/signup"></a> --}}
         </li>
         <li class="nav-item">
           <a class="nav-link " href="/changeProfile">Profile</a>
         </li>
-        <li  class="nav-item">
+               <li  class="nav-item">
+          <a class="nav-link" href="/controlPanel">Mis Reportes</a>
+        </li>
+         <li  class="nav-item">
           <a class="nav-link" href="/logout">logout</a>
         </li>
         
       {{else}}
-         <li class="nav-item">
-          <a class="nav-link " href="/">Home</a>
-        </li>
-         <li class="nav-item">
+      <li class="nav-item">
         <a class="nav-link" href="/signup">Signup</a>
       </li>
     
@@ -48,33 +54,17 @@
         <a class="nav-link" href="/login">Login</a>
       </li>
       {{/if}}
-    </ul>
-    
+      </ul>
+      
+     
+    </div>
   </div>
 </nav>
 
+
+
 <div class="container-fluid h-100">
-    <div class="row h-100   ">
-        {{!-- <aside class="col-12 col-md-2 menu-lat">
-            <nav class="menu-lat navbar navbar-expand navbar-dark flex-md-column flex-row align-items-start py-2">
-                <div class="collapse navbar-collapse nav-side">
-                    <ul class="flex-md-column flex-row navbar-nav w-100 justify-content-between">
-                        <li class="nav-item navside">
-                         <a class="nav-link" href="newIncident"> <span class="font-weight-bold">GENERA REPORTE</span></a>
-                        </li>
-                        <li class="nav-item navside">
-                            <a class="nav-link " href="#"> <span class="font-weight-bold">ESTADISTICAS</span></a>
-                        </li>
-                        <li class="nav-item navside">
-                            <a class="nav-link " href="#"><span class="font-weight-bold">LOCALIZA TU DELEGACION</span></a>
-                        </li><li class="nav-item navside">
-                            <a class="nav-link " href="#"><span class="font-weight-bold">TELEFONOS DE EMERGANCIA</span></a>
-                        </li>
-                      
-                    </ul>
-                </div>
-            </nav>
-        </aside> --}}
+
         <main class="col bg-faded py-3"> 
             
             <div class="container">
@@ -91,8 +81,15 @@
 
 <footer class="page-footer font-small fixed-bottom">
 
-  
-  <div class=" text-center py-3">Ironhack</div>
+  <div>
+
+  </div>
+  <div class=" text-center py-3">
+  <a href="https://www.facebook.com/" class="fa fa-facebook-official col-1 " style="font-size:28px;color:#ffffff"></a>
+  <a href="https://github.com/jduarte00/local-police" class="fa fa-github col-1" style="font-size:28px;color:#ffffff;text-decoration: none"></a>
+  <a href="https://twitter.com/" class="fa fa-twitter col-1" style="font-size:28px;color:#ffffff; text-decoration: none"></a>
+  <a href="https://www.instagram.com/" class="fa fa-instagram col-1" style="font-size:28px;color:#ffffff;text-decoration: none"></a>
+</div>
  
 
 </footer>

@@ -1,8 +1,11 @@
 
-<div class="offset-sm-3">
-  <div >
-    <h2>Cambia tu información</h2>
-  </div>
+<form id="form-container" action="/changeProfile" method="post">
+  <label for="username">Nombre de usuario</label>
+  <input type="text" name="username" value="{{user.username}}" placeholder="Nombre de usuario" id="username">
+
+  <label for="password">Mail</label>
+  <input type="text" name="mail" placeholder="Correo Electrónico" value="{{user.mail}}" id="mail">
+  <br>
   <br>
   
   <form id="form-container" action="/signup" method="post" class="form-inlin justify-content-center">
