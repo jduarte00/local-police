@@ -2,7 +2,8 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const incidentSchema = new Schema({
-    location: String,
+    delegacion: String,
+    colonia: String,
     type: String,
     oficialNumber: String,
     date: Date,
