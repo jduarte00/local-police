@@ -13,19 +13,22 @@ funcRoutes.get("/newIncident", ensureLogin.ensureLoggedIn(),(req, res, next) => 
 });
 
 funcRoutes.post("/newIncident", (req, res, next)=>{
-    const location = req.body.location;
+    const delegacion = req.body.delegacion;
+    const colonia = req.body.colonia;
     const type = req.body.type;
     const oficialNumber = req.body.oficialNumber;
     const date = req.body.date;
     const additionalDetails = req.body.additionalDetails;
     const userID = req.user._id;
     const newIncident = new Incident({
-      location,
+      delegacion,
+      colonia,
       type,
       oficialNumber,
       date,
       additionalDetails
     });
+    
     newIncident.save().then(incident=>{
       const incidentID = incident._id;
       User.findById(userID).then(user=>{
