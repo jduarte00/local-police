@@ -5,16 +5,55 @@
   <br>
   <form action="/newIncident" method="post" class="form-inlin justify-content-center">
     <div class="form-group row">
-      <label for="location" class="col-3 col-form-label" >Location</label>
+      <label for="delegacion" class="col-3 col-form-label" >Alcaldía</label>
         <div class="col-9">
-          <input type="text" name="location" value="" placeholder="Ingresa la ubicación" required>
+          <select name="delegacion" id="delegacion">
+            <option value="null">Selecciona una delegacion</option>
+            <option value="alvaro">Álvaro Obregón</option>
+            <option value="azcapotzalco">Azcapotzalco</option>
+            <option value="benito">Benito Juárez</option>
+            <option value="coyoacan">Coyoacán</option>
+            <option value="cuajimalpa">Cuajimapla de Morelos</option>
+            <option value="cuahutemoc">Cuauhtémoc</option>
+            <option value="gustavo">Gustavo A. Madero</option>
+            <option value="iztacalco">Iztacalco</option>
+            <option value="iztapalapa">Iztapalapa</option>
+            <option value="magdalena">Magdalena Contreras</option>
+            <option value="miguel">Miguel Hidalgo</option>
+            <option value="milpa">Milpa Alta</option>
+            <option value="tlahuac">Tláhuac</option>
+            <option value="tlalpan">Tlalpan</option>
+            <option value="venustiano">Venustiano Carranza</option>
+            <option value="xochimilco">Xochimilco</option>
+          </select>
+        </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="colonia" class="col-3 col-form-label" >Colonia</label>
+        <div class="col-9">
+          <select name="colonia" id="colonia">
+          </select>
         </div>
     </div>
 
   <div class="form-group row">
     <label for="type" class="col-3 col-form-label">Tipo de Delito</label>
       <div class="col-9">
-        <input type="text" name="type" value="" placeholder="Selecciona un delito"  required>
+        <select name="type" id="type">
+          <option value="null">Selecciona un tipo de delito</option>
+          <option value="celular">Robo a transeúnte con violencia</option>
+          <option value="celular">Robo a trenseúnte sin violencia</option>
+          <option value="auto">Robo a negocio con violencia</option>
+          <option value="auto">Robo a negocio sin violencia</option>
+          <option value="auto">Robo de automóvil con violencia</option>
+          <option value="auto">Robo de automóvil sin violencia</option>
+          <option value="auto">Robo a casa habitación con violencia</option>
+          <option value="auto">Robo a casa habitación sin violencia</option>
+          <option value="auto">Daño a propiedad ajena</option>
+          <option value="auto">Lesiones culposas</option>
+          <option value="auto">Vandalismo</option>
+        </select>
       </div>
   </div>
   <div class="form-group row">
