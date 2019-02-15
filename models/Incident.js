@@ -4,6 +4,7 @@ const Schema = mongoose.Schema;
 const incidentSchema = new Schema({
     delegacion: String,
     colonia: String,
+    coloniaSinEspacios: String,
     type: String,
     oficialNumber: String,
     date: Date,
