@@ -95,46 +95,4 @@
 </form>
 </div>
 
-<script>
-  function asignarColonia(event){
-  let coloniasCoyoacan = [
-    'Barrio de Niño Jesús',
-'Barrio La Concepción',
-'Barrio Oxtopulco Universidad',
-'Barrio San Lucas',
-'Barrio Santa Catarina',
-'Ciudad Universitaria'
-  ];
-
-  let coloniasGustavo = [
-    "Barrio Candelaria Ticomán",
-"Barrio Guadalupe Ticomán"
-  ]
-
-
-
-
-  switch(true) {
-    case event.target.value === "gustavo":
-      document.querySelector("#colonia").innerHTML  = coloniasGustavo.reduce((acc, current) => {
-          return acc += `<option value="${current}">${current}</option>`;
-      },"");
-      break;
-    case event.target.value === "coyoacan":
-      document.querySelector("#colonia").innerHTML = coloniasCoyoacan.reduce((acc, current) => {
-        return acc += `<option value="${current}">${current}</option>`
-      }, ""); 
-    break;
-  }
-  
-
-} 
-
-  document.addEventListener('DOMContentLoaded', () => {
-
-  console.log('IronGenerator JS imported successfully!');
-  document.querySelector("#delegacion").onchange=asignarColonia;
-
-}, false);
-
-</script>
+ <script src="/javascripts/delegaciones.js"></script>
