@@ -100,7 +100,107 @@ funcRoutes.get("/incidentes/view/:id", ensureLogin.ensureLoggedIn(), (req, res, 
   Incident.findById(libroID).then(incident=>{
     res.render("func/incident-detail", {incident, user});
   })
-
 }); 
+
+funcRoutes.get("/delegacion/:nombre", (req, res, next) => {
+  let delegacionName = req.params.nombre;
+  Incident.find({delegacion: delegacionName}).then(incidents => {
+    const totalIncidents = incidents.length;
+    let temporalObjectOfTypes = {
+      "Robo a transeúnte con violencia": 0,
+          "Robo a transeúnte sin violencia":1,
+       "Robo a negocio con violencia":0,
+       "Robo a negocio sin violencia":0,
+       "Robo de automóvil con violencia":0,
+       "Robo de automóvil sin violencia":0,
+       "Robo a casa habitación con violencia":0,
+       "Robo a casa habitación sin violencia":0,
+        "Daño a propiedad ajena":0,
+        "Lesiones culposas":0,
+        "Vandalismo":0
+    };
+
+    
+    incidents.forEach(current => {
+      let type = current.type;
+      temporalObjectOfTypes[type] += 1;
+    });
+
+    let objectOfTypes = [
+      Object.keys(temporalObjectOfTypes),
+      Object.values(temporalObjectOfTypes)
+    ]
+
+    let temporalObjectOfDates = {
+      "enero": 0,
+"febrero": 0,
+"marzo": 0,
+"abril": 0,
+"mayo": 0,
+"junio": 0,
+"julio": 0,
+"agosto": 0,
+"septiembre": 0,
+"octubre": 0,
+"noviembre": 0,
+"diciembre": 0,
+    };
+
+    incidents.forEach(current => {
+      let month = current.date.getMonth();
+      if (month === 0) {
+        temporalObjectOfDates["enero"] += 1;
+      } else if (month === 1){
+        temporalObjectOfDates["febrero"] += 1;
+      } else if (month === 2){
+        temporalObjectOfDates["marzo"] += 1;
+      } else if (month === 3){
+        temporalObjectOfDates["abril"] += 1;
+      } else if (month === 4){
+        temporalObjectOfDates["mayo"] += 1;
+      }else if (month === 5){
+        temporalObjectOfDates["juni"] += 1;
+      }else if (month === 6){
+        temporalObjectOfDates["julio"] += 1;
+      }else if (month === 7){
+        temporalObjectOfDates["agosto"] += 1;
+      } else if (month === 8){
+        temporalObjectOfDates["septiembre"] += 1;
+      } else if (month === 9){
+        temporalObjectOfDates["octubre"] += 1;
+      } else if (month === 10){
+        temporalObjectOfDates["noviembre"] += 1;
+      } else if (month === 11){
+        temporalObjectOfDates["diciembre"] += 1;
+      }
+    });
+
+    let temporalObjectOfColonias = incidents.reduce((accum, current)=>{
+      if (!accum[current.colonia]){
+        accum[current.colonia] = 1;
+        return accum;
+      } else {
+        accum[current.colonia] += 1;
+        return accum;
+      }
+    },{});
+    
+    console.log(objectOfTypes, temporalObjectOfDates, temporalObjectOfColonias);
+
+    
+      let objectOfTypesLabels = objectOfTypes[0]
+      let pruebin = JSON.stringify(objectOfTypes[0]);
+      let pruebindos = JSON.stringify(objectOfTypes[1]);
+    
+
+    
+
+   
+  let testin = "hola"
+    res.render("func/delegacion", {pruebin, pruebindos});
+    
+  })
+
+});
 
 module.exports = funcRoutes;
