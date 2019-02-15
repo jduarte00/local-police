@@ -42,17 +42,17 @@
       <div class="col-9">
         <select name="type" id="type">
           <option value="null">Selecciona un tipo de delito</option>
-          <option value="celular">Robo a transeúnte con violencia</option>
-          <option value="celular">Robo a trenseúnte sin violencia</option>
-          <option value="auto">Robo a negocio con violencia</option>
-          <option value="auto">Robo a negocio sin violencia</option>
-          <option value="auto">Robo de automóvil con violencia</option>
-          <option value="auto">Robo de automóvil sin violencia</option>
-          <option value="auto">Robo a casa habitación con violencia</option>
-          <option value="auto">Robo a casa habitación sin violencia</option>
-          <option value="auto">Daño a propiedad ajena</option>
-          <option value="auto">Lesiones culposas</option>
-          <option value="auto">Vandalismo</option>
+          <option value="Robo a transeúnte con violencia">Robo a transeúnte con violencia</option>
+          <option value="Robo a transeúnte sin violencia">Robo a trenseúnte sin violencia</option>
+          <option value="Robo a negocio con violencia">Robo a negocio con violencia</option>
+          <option value="Robo a negocio sin violencia">Robo a negocio sin violencia</option>
+          <option value="Robo de automóvil con violencia">Robo de automóvil con violencia</option>
+          <option value="Robo de automóvil sin violencia">Robo de automóvil sin violencia</option>
+          <option value="Robo a casa habitación con violencia">Robo a casa habitación con violencia</option>
+          <option value="Robo a casa habitación sin violencia">Robo a casa habitación sin violencia</option>
+          <option value="Daño a propiedad ajena">Daño a propiedad ajena</option>
+          <option value="Lesiones culposas">Lesiones culposas</option>
+          <option value="Vandalismo">Vandalismo</option>
         </select>
       </div>
   </div>
@@ -94,3 +94,47 @@
 
 </form>
 </div>
+
+<script>
+  function asignarColonia(event){
+  let coloniasCoyoacan = [
+    'Barrio de Niño Jesús',
+'Barrio La Concepción',
+'Barrio Oxtopulco Universidad',
+'Barrio San Lucas',
+'Barrio Santa Catarina',
+'Ciudad Universitaria'
+  ];
+
+  let coloniasGustavo = [
+    "Barrio Candelaria Ticomán",
+"Barrio Guadalupe Ticomán"
+  ]
+
+
+
+
+  switch(true) {
+    case event.target.value === "gustavo":
+      document.querySelector("#colonia").innerHTML  = coloniasGustavo.reduce((acc, current) => {
+          return acc += `<option value="${current}">${current}</option>`;
+      },"");
+      break;
+    case event.target.value === "coyoacan":
+      document.querySelector("#colonia").innerHTML = coloniasCoyoacan.reduce((acc, current) => {
+        return acc += `<option value="${current}">${current}</option>`
+      }, ""); 
+    break;
+  }
+  
+
+} 
+
+  document.addEventListener('DOMContentLoaded', () => {
+
+  console.log('IronGenerator JS imported successfully!');
+  document.querySelector("#delegacion").onchange=asignarColonia;
+
+}, false);
+
+</script>
