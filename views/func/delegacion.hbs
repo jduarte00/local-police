@@ -1,46 +1,106 @@
+<h1>
+{{delegacionCompleteName}}
+</h1>
+
+<h3>
+    El número total de incidentes registrados en esta delgación es de {{totalIncidents}}
+</h3>
+
+
 <p>
-
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus reprehenderit in voluptatum adipisci, ducimus assumenda, nulla mollitia cum quae labore quas maxime eaque voluptates quam voluptas, cumque animi error alias.
 </p>
-<canvas width="50" height="50" id="graphByType"></canvas>
 
+<canvas width="50" height="50" id="graphByType"></canvas>
+{{!-- Script for graph by type --}}
 <script>
-var ctx = document.getElementById("graphByType");
-var myChart = new Chart(ctx, {
-    type: 'horizontalBar',
-    data: {
-        labels: {{{pruebin}}},
-        datasets: [{
-            label: "{{testin}}",
-            data: {{{pruebindos}}},
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
-            ],
-            borderColor: [
-                'rgba(255,99,132,1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)',
-                'rgba(255, 159, 64, 1)'
-            ],
-            borderWidth: 1
+    var ctx = document.getElementById("graphByType");
+    var myChart = new Chart(ctx, {
+        type: 'horizontalBar',
+        data: {
+            labels: {{{ graphByTypeLabels }}},
+    datasets: [{
+        label: "Incidentes por tipo en la delegación {{delegacionCompleteName}}",
+        data: {{{ graphByTypeData }}},
+        backgroundColor: [
+        'rgba(255, 99, 132, 0.2)',
+        'rgba(54, 162, 235, 0.2)',
+        'rgba(255, 206, 86, 0.2)',
+        'rgba(75, 192, 192, 0.2)',
+        'rgba(153, 102, 255, 0.2)',
+        'rgba(255, 159, 64, 0.2)',
+        'rgba(255, 159, 64, 0.2)',
+        'rgba(255, 99, 132, 0.2)',
+        'rgba(54, 162, 235, 0.2)',
+        'rgba(255, 206, 86, 0.2)',
+        'rgba(75, 192, 192, 0.2)'
+    ],
+        borderColor: [
+        'rgba(255,99,132,1)',
+        'rgba(54, 162, 235, 1)',
+        'rgba(255, 206, 86, 1)',
+        'rgba(75, 192, 192, 1)',
+        'rgba(153, 102, 255, 1)',
+        'rgba(255, 159, 64, 1)',
+        'rgba(255, 159, 64, 1)',
+        'rgba(255,99,132,1)',
+        'rgba(54, 162, 235, 1)',
+        'rgba(255, 206, 86, 1)',
+        'rgba(75, 192, 192, 1)'
+    ],
+        borderWidth: 1
         }]
     },
     options: {
         scales: {
             yAxes: [{
                 ticks: {
-                    beginAtZero:true
-                }
+                    beginAtZero: true
+                },
+                stacked: true,
+
             }]
         }
     }
 });
 </script>
+
+
+<canvas width="50" height="50" id="graphByDate"></canvas>
+{{!-- Script for graph by time --}}
+
+<script>new Chart(document.getElementById("graphByDate"), { "type": "line", "data": { "labels": {{{ graphByDateLabels }}}, "datasets": [{ "label": "Serie Histórica de Incidentes para la delegación {{delegacionCompleteName}}", "data": {{{ graphByDateData }}}, "fill": false, "borderColor": "rgb(75, 192, 192)", "lineTension": 0.1 }] }, "options": {stacked: true} });</script>
+
+<h1>Número de Incidentes registrados por Colonia en la delegación {{delegacionCompleteName}}</h1>
+<canvas width="50" height="50" id="graphByColonia"></canvas>
+{{!-- Script for graph by Colonia --}}
+
+<script>new Chart(document.getElementById("graphByColonia"), { "type": "doughnut", "data": { "labels": {{{ graphByColoniaLabels }}}, "datasets": [{ "label": "My First Dataset", "data": {{{ graphByColoniaData }}}, "backgroundColor": ['rgba(255,99,132,1)',
+        'rgba(54, 162, 235, 1)',
+        'rgba(255, 206, 86, 1)',
+        'rgba(75, 192, 192, 1)',
+        'rgba(153, 102, 255, 1)',
+        'rgba(255, 159, 64, 1)',
+        'rgba(255, 159, 64, 1)',
+        'rgba(255,99,132,1)',
+        'rgba(54, 162, 235, 1)',
+        'rgba(255, 206, 86, 1)',
+        'rgba(75, 192, 192, 1)',
+        'rgba(54, 162, 235, 1)',
+        'rgba(255, 206, 86, 1)',
+        'rgba(75, 192, 192, 1)',
+        'rgba(153, 102, 255, 1)',
+        'rgba(255, 159, 64, 1)',
+        'rgba(255, 159, 64, 1)',
+        'rgba(255,99,132,1)']}]}});</script>
+
+        <p>{{recomendacion}}</p>
+
+        <h3>Consulta la info por colonia</h3>
+
+        {{#each graphByColoniaLabels}}
+            <a href=""></a>
+        {{/each}}
+       
+
+        <a href="/">Regresa a Casa :)</a>
