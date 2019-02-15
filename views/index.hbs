@@ -1,3 +1,55 @@
 {{!-- <h1>{{title}}</h1>
 <p>Welcome to {{title}}</p> --}}
-<img class="img-index"src="/images/local_police.png" alt="">
+<div>
+<canvas width="250" height="250" id="graphByDelegacion"></canvas>
+</div>
+
+
+<script>
+    var ctx = document.getElementById("graphByDelegacion");
+    var myChart = new Chart(ctx, {
+        type: 'horizontalBar',
+        data: {
+            labels: {{{graphByDelegacionLabels}}},
+    datasets: [{
+        label: "Incidentes por Delegación",
+        data: {{{graphByDelegacionData}}},
+        backgroundColor: "rgba(255,99,132,0.2)",
+        borderColor: "rgba(255,99,132,1)",
+        borderWidth: 2
+        }]
+    },
+    options: {
+  maintainAspectRatio: false,
+  scales: {
+    yAxes: [{
+      stacked: true,
+      gridLines: {
+        display: true,
+        color: "rgba(255,99,132,0.2)"
+      }
+    }],
+    xAxes: [{
+      gridLines: {
+        display: false
+      }
+    }]
+  }
+}
+});
+</script>
+
+<h1>Local Police</h1>
+
+<p>Contamos con un total de {{totalIncidents}} incidentes en nuesta base de datos!</p>
+
+<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corrupti tenetur possimus pariatur facilis hic voluptatum ratione ut. Doloribus eligendi facilis eveniet recusandae velit porro? Molestias tempora aliquam debitis eos reprehenderit?</p>
+
+<h3>Consulta la información por Delegación</h3>
+
+{{#each nombresDeDelegaciones}}
+    <a href="/delegacion/{{this.href}}">{{this.nombre}}</a>
+{{/each}}
+
+
+
