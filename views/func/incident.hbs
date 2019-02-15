@@ -71,13 +71,13 @@
   <div class="form-group row">
     <label for="additionalDetails" class="col-3 col-form-label">Descripción</label>
       <div class ="col-9">
-        <textarea name="additionalDetails" id="" cols="30" rows="10" placeholder="Descripción" maxlength="1000" required></textarea>
+        <textarea name="additionalDetails" id="" cols="30" rows="10" placeholder="Descripción" maxlength="600" required></textarea>
       </div>
   </div>
 
 
   {{#if message}}
-    <div class="error-message">
+    <div class="error-message form-group row col-3 alert alert-danger" role="alert">
       {{message}}
     </div>
   {{/if}}
