@@ -1,88 +1,59 @@
-@import url('https://fonts.googleapis.com/css?family=Archivo');
-
+@import url("https://fonts.googleapis.com/css?family=Archivo");
 body {
   padding: 0px;
   margin: 0px;
   font-size: 1rem;
-  font-family: 'Archivo', sans-serif;
+  font-family: 'Archivo', sans-serif; 
+  margin:0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
-
 .navbar {
-  background-color: #1E2C4C ;
-  
-}
+  background-color: #1E2C4C; }
+
+#conteiner {
+  min-height: 100%; }
 
 .page-footer {
   background-color: #474D53;
   color: #ffffff;
-}
-
-.container{
-  margin-top: 50px;
-}
-
   
-body, html {
-  height: 95%;
-  
+ }
+.div-body {
+  flex: 1;
 }
+.container {
+  margin-top: 50px; }
 
 
-span{
-  color: #06213C
-}
-.a-nav{
-  color: black
-}
-.img-profile{
+
+.img-profile {
   width: 40px;
   height: 40px;
-  border-radius: 50%;
-}
-.btn-incident{
-  display: flex; 
-  justify-content: space-between;
-  }
-.img-index{
+  border-radius: 50%; }
+
+.btn-incident {
+  display: flex;
+  justify-content: space-between; }
+
+.img-index {
   width: 400px;
   height: auto;
-  display:block;
-  margin:auto;
+  display: block;
+  margin: auto; }
 
-}
-.nav-side:hover {
-  color: #fff;
-  background: none;
-}
-.navside{
-  padding: 5px;
- }
- .img-edit{
+
+.img-edit {
   width: 200px;
   height: 200px;
   margin-left: 100px;
-  margin-top: 20px;
-  
- }
+  margin-top: 20px; }
 
- .map-container{
-   display: flex;
+.map-container {
+  display: flex; }
 
- }
- .btn-edit{
-   padding-top: 50px;
- }
-//  h2{
-//    text-align: center
-//  }
-
-.fa-facebook-official{
- 
-  font-size: 60px;
-  color:#ffffff
-
-}
-
-
-
+.btn-edit {
+  padding-top: 50px; }
 
