@@ -21,7 +21,7 @@
     <div class="col text-deleg">
         <h3>La Alacadía {{delegacionCompleteName}}</h3>
         <p>
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit doloribus aut exercitationem. Omnis veritatis vitae iure officiis iusto quo eaque nihil temporibus, neque unde illo aperiam mollitia enim, assumenda numquam Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nemo ullam quae sit quam, blanditiis possimus dignissimos enim itaque beatae cupiditate voluptas asperiores, vero ducimus. At exercitationem voluptatum quis consequatur pariatur!
+            {{selectedMessage}}
         </p>    
     </div>
 
@@ -48,8 +48,11 @@
 
          <h4>Consulta la info por colonia</h4>
 
-       <div>
+           <div>
 {{#each tablaColonias}}
+            <a href="/colonia/{{this.href}}">{{this.nombre}}</a>
+        {{/each}}
+       </div>
 
             <a class="btn btn-primary btn-dele" href="/colonia/{{this.href}}">{{this.nombre}}</a>
         {{/each}}
@@ -133,6 +136,7 @@
         'rgba(255, 159, 64, 1)',
         'rgba(255,99,132,1)']}]}});</script>
 
+<<<<<<< HEAD
         
 
     
@@ -140,3 +144,14 @@
        
         
         
+=======
+        {{!-- <p>{{recomendacion}}</p>
+
+        <h3>Consulta la info por colonia</h3>
+
+ 
+        
+       
+        <h3><a href="/">Regresa a Casa :)</a></h3>   
+         --}}
+>>>>>>> 21d70277655365ffa1f2b9f5cd58eb920d261fce
