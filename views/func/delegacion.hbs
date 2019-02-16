@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="">
     <div>
         <h1>
             <strong>
@@ -43,15 +43,19 @@
 
         <h3>Recomendación</h3>
         <h1><strong>{{recomendacion}}</strong></h1>
+<br>
+<br>
 
-        <p>Consulta la info por colonia</p  >
+         <h4>Consulta la info por colonia</h4>
 
-        {{#each graphByColoniaLabels}}
-            <a href=""></a>
+       <div>
+{{#each tablaColonias}}
+
+            <a class="btn btn-primary btn-dele" href="/colonia/{{this.href}}">{{this.nombre}}</a>
         {{/each}}
-       
-
-        <a href="/">Regresa a Casa :)</a>
+       </div>
+       <br>
+    <a class="btn btn-primary btn-rtnhome" href="/">Regresa a Casa :)</a>
 
 {{!-- Script for graph by type --}}
 <script>
@@ -129,16 +133,10 @@
         'rgba(255, 159, 64, 1)',
         'rgba(255,99,132,1)']}]}});</script>
 
-        <p>{{recomendacion}}</p>
+        
 
-        <h3>Consulta la info por colonia</h3>
-
-       <div>
-{{#each tablaColonias}}
-            <a href="/colonia/{{this.href}}">{{this.nombre}}</a>
-        {{/each}}
-       </div>
+    
         
        
-        <h3><a href="/">Regresa a Casa :)</a></h3>   
+        
         
