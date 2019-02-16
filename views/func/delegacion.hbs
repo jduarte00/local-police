@@ -1,12 +1,12 @@
 <div class="">
     <div>
-        <h1>
+        <h1 class="text-colonia">
             <strong>
             {{delegacionCompleteName}}
             </strong>
         </h1>
 <br>
-        <h2>
+        <h2 class="text-colonia">
     El número total de incidentes registrados en esta Alacadía es de <strong>{{totalIncidents}}</strong>
         </h2>
     </div>
@@ -18,12 +18,12 @@
         
         <canvas id="graphByType"></canvas>
     </div>
-    <div class="col text-deleg">
+<div class="col text-deleg">
         <h3>La Alacadía {{delegacionCompleteName}}</h3>
         <p>
             {{selectedMessage}}
         </p>    
-    </div>
+</div>
 
 </div>
 </div>
@@ -57,7 +57,7 @@
        <br>
     <a class="btn btn-primary btn-rtnhome" href="/">Regresa a Casa :)</a>
 
-{{!-- Script for graph by type --}}
+
 <script>
     var ctx = document.getElementById("graphByType");
     var myChart = new Chart(ctx, {

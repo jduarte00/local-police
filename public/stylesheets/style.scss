@@ -27,8 +27,6 @@ body {
 .container {
   margin-top: 50px; }
 
-
-
 .img-profile {
   width: 40px;
   height: 40px;
@@ -80,8 +78,15 @@ body {
     height: 500px;
     
   }
+  .chart-container4{
+    position: relative;
+    margin: auto;
+    width: 600px;
+    height: 500px;
+    
+  }
   .h1-index{
-    padding-left: 30px;
+    
     font-size: 91px
 
   }
@@ -96,5 +101,8 @@ body {
   }
   .btn-rtnhome{
    background-color: #1E2C4C
+  }
+  .text-colonia{
+    text-align: center
   }
   

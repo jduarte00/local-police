@@ -1,15 +1,39 @@
-<h1>
-{{coloniaCompleteName}}
-</h1>
+<div class="">
+    
+        <h1 class="text-colonia">
+            <strong>{{coloniaCompleteName}}</strong>
+        </h1>
+    <div class="centrar">
+<br>
+    <div class="text-colonia">
+        <h2>El número total de incidentes registrados en esta colonia es de {{totalIncidents}}</h2>
+    </div>
+    </div>
+<br><br>
+    <div class="row ">
+        <div class="chart-container4 col-8">
+            <h3 class="">Incidentes por tipo en la colonia {{coloniaCompleteName}}</h3>
+            <canvas  id="graphByType"></canvas>
+        </div>
+        <div class="chart-container4 col-8">
+            <h3>Serie Histórica de Incidentes para la delegación {{coloniaCompleteName}}</h3>
+            <br>
+            <canvas id="graphByDate"></canvas>
+        </div>
+    </div>
+</div>
+<div>
+    <h3>Recomendación</h3>
+     <h1>{{recomendacion}}</h1>
+ </div>     
+      <br>
+        <br>
+        <a  class="btn btn-primary btn-rtnhome" href="/delegacion/{{delegacionName}}">Regresa a la Delegacion</a>
+        
+        <a class="btn btn-primary btn-rtnhome"href="/">Regresa a Casa :)</a> 
 
-<h3>
-    El número total de incidentes registrados en esta colonia es de {{totalIncidents}}
-</h3>
 
-<canvas width="50" height="50" id="graphByType"></canvas>
-<canvas width="50" height="50" id="graphByDate"></canvas>
 
-{{!-- Script for graph by type --}}
 <script>
     var ctx = document.getElementById("graphByType");
     var myChart = new Chart(ctx, {
@@ -64,14 +88,9 @@
 
 
 
-{{!-- Script for graph by time --}}
+
 
 <script>new Chart(document.getElementById("graphByDate"), { "type": "line", "data": { "labels": {{{ graphByDateLabels }}}, "datasets": [{ "label": "Serie Histórica de Incidentes para la delegación {{coloniaCompleteName}}", "data": {{{ graphByDateData }}}, "fill": false, "borderColor": "rgb(75, 192, 192)", "lineTension": 0.1 }] }, "options": {stacked: true} });</script>
 
 
-        <p>{{recomendacion}}</p>
-
-        <a href="/delegacion/{{delegacionName}}">Regresa a la Delegacion</a>
-        
-        <h3><a href="/">Regresa a Casa :)</a></h3>   
         
