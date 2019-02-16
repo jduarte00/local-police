@@ -239,9 +239,9 @@ funcRoutes.get(
   "/incidentes/view/:id",
   ensureLogin.ensureLoggedIn(),
   (req, res, next) => {
-    const libroID = req.params.id;
+    const incidenteID = req.params.id;
     const user = req.user;
-    Incident.findById(libroID).then(incident => {
+    Incident.findById(incidenteID).then(incident => {
       res.render("func/incident-detail", { incident, user });
     });
   }
@@ -379,6 +379,9 @@ funcRoutes.get("/delegacion/:nombre", (req, res, next) => {
       }
     }, {});
 
+    let graphByColoniaLabels = JSON.stringify(Object.keys(temporalObjectOfColonias)); 
+    let graphByColoniaData = JSON.stringify(Object.values(temporalObjectOfColonias)); 
+
     
 
     let coloniasSinEspaciosObject = incidents.reduce((accum, current) => {
@@ -387,23 +390,134 @@ funcRoutes.get("/delegacion/:nombre", (req, res, next) => {
         return accum;
       }
     }, {}); 
-
-    let objectOfColonias = [
-      Object.keys(temporalObjectOfColonias),
-      Object.values(temporalObjectOfColonias)
-    ]
-
-    let graphByColoniaLabels = JSON.stringify(objectOfColonias[0]);
-    let graphByColoniaData = JSON.stringify(objectOfColonias[1]);
-
     
     //console.log(objectOfTypes, temporalObjectOfDates, temporalObjectOfColonias);
 
-    console.log(coloniasSinEspaciosObject);
+    const nombres = Object.keys(coloniasSinEspaciosObject);
 
+    const tablaColonias = nombres.map(current=>{
+      let objetito ={
+        "href": coloniasSinEspaciosObject[current],
+        "nombre": current
+      };
+      return objetito;
+    })
     
-    res.render("func/delegacion", { delegacionCompleteName, totalIncidents, recomendacion, coloniasSinEspaciosObject, graphByTypeLabels, graphByTypeData, graphByDateLabels, graphByDateData, graphByColoniaLabels, graphByColoniaData });
+    
+    res.render("func/delegacion", { delegacionCompleteName, totalIncidents, recomendacion, tablaColonias, graphByTypeLabels, graphByTypeData, graphByDateLabels, graphByDateData, graphByColoniaLabels, graphByColoniaData });
   });
 });
+
+funcRoutes.get("/incidentes/delete/:id", (req, res, next)=>{
+  const incidentID = req.params.id;
+  Incident.deleteOne({_id: incidentID}).then(err=>{
+    res.redirect("/controlPanel");
+  })
+});
+
+funcRoutes.get("/colonia/:name", (req, res, next)=>{
+  const coloniaName = req.params.name;
+  Incident.find({coloniaSinEspacios: coloniaName}).then(incidents => {
+    const coloniaCompleteName = incidents[0].colonia;
+    const totalIncidents = incidents.length;
+    const delegacionName = incidents[0].delegacion;
+
+    const recomendaciones = [
+      [3, "Esta leve, vete guapo"],
+      [6, "Aguas!!, no te lleves el Rolex"],
+      [10, "Esta cabrón, llévate la playera del América"]
+    ];
+
+    let recomendacion;
+
+
+    recomendaciones.some(current => {
+      recomendacion = current[1];
+      return totalIncidents < current[0]
+    });
+
+    let temporalObjectOfTypes = {
+      "Robo a transeúnte con violencia": 0,
+      "Robo a transeúnte sin violencia": 0,
+      "Robo a negocio con violencia": 0,
+      "Robo a negocio sin violencia": 0,
+      "Robo de automóvil con violencia": 0,
+      "Robo de automóvil sin violencia": 0,
+      "Robo a casa habitación con violencia": 0,
+      "Robo a casa habitación sin violencia": 0,
+      "Daño a propiedad ajena": 0,
+      "Lesiones culposas": 0,
+      "Vandalismo": 0
+    };
+
+    incidents.forEach(current => {
+      let type = current.type;
+      temporalObjectOfTypes[type] += 1;
+    });
+
+    let objectOfTypes = [
+      Object.keys(temporalObjectOfTypes),
+      Object.values(temporalObjectOfTypes)
+    ];
+
+    let graphByTypeLabels = JSON.stringify(objectOfTypes[0]);
+    let graphByTypeData = JSON.stringify(objectOfTypes[1]);
+
+    let temporalObjectOfDates = {
+      enero: 0,
+      febrero: 0,
+      marzo: 0,
+      abril: 0,
+      mayo: 0,
+      junio: 0,
+      julio: 0,
+      agosto: 0,
+      septiembre: 0,
+      octubre: 0,
+      noviembre: 0,
+      diciembre: 0
+    };
+
+    incidents.forEach(current => {
+      let month = current.date.getMonth();
+      if (month === 0) {
+        temporalObjectOfDates["enero"] += 1;
+      } else if (month === 1) {
+        temporalObjectOfDates["febrero"] += 1;
+      } else if (month === 2) {
+        temporalObjectOfDates["marzo"] += 1;
+      } else if (month === 3) {
+        temporalObjectOfDates["abril"] += 1;
+      } else if (month === 4) {
+        temporalObjectOfDates["mayo"] += 1;
+      } else if (month === 5) {
+        temporalObjectOfDates["juni"] += 1;
+      } else if (month === 6) {
+        temporalObjectOfDates["julio"] += 1;
+      } else if (month === 7) {
+        temporalObjectOfDates["agosto"] += 1;
+      } else if (month === 8) {
+        temporalObjectOfDates["septiembre"] += 1;
+      } else if (month === 9) {
+        temporalObjectOfDates["octubre"] += 1;
+      } else if (month === 10) {
+        temporalObjectOfDates["noviembre"] += 1;
+      } else if (month === 11) {
+        temporalObjectOfDates["diciembre"] += 1;
+      }
+    });
+
+    let objectOfDates = [
+      Object.keys(temporalObjectOfDates),
+      Object.values(temporalObjectOfDates)
+    ];
+
+    let graphByDateLabels = JSON.stringify(objectOfDates[0]);
+    let graphByDateData = JSON.stringify(objectOfDates[1]);
+
+    res.render("func/colonia", {coloniaCompleteName,totalIncidents, graphByTypeLabels, graphByTypeData, graphByDateLabels, graphByDateData, recomendacion, delegacionName})
+  })
+});
+
 
 module.exports = funcRoutes;
