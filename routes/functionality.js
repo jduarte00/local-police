@@ -9,7 +9,9 @@ const uploadCloud = require("../config/cloudinary");
 
 funcRoutes.get("/", (req, res, next) => {
   Incident.find().then(incidents => {
-    const totalIncidents = incidents.length;
+    User.count().then(count=>{
+      const usuariosTotales = count;
+      const totalIncidents = incidents.length;
     const user = req.user;
     const conteoPorDelegacion = {
       "alvaro" : 0,
@@ -98,10 +100,12 @@ funcRoutes.get("/", (req, res, next) => {
     let graphByDelegacionData = JSON.stringify(graphByDelegacionDataTemp);
 
 
-    res.render("index", {graphByDelegacionLabels, graphByDelegacionData, totalIncidents, nombresDeDelegaciones,user});
-  
-  });
+    res.render("index", {graphByDelegacionLabels, graphByDelegacionData, totalIncidents, nombresDeDelegaciones,user, usuariosTotales});
+      
+    })
+  })
 });
+    
 
 funcRoutes.get(
   "/newIncident",
