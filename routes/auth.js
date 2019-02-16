@@ -9,7 +9,7 @@ const User = require("../models/User");
 const bcrypt = require("bcrypt");
 const bcryptSalt = 10;
 
-authRoutes.get("/signup", (req, res, next) => {
+authRoutes.get("/signup", ensureLogin.ensureLoggedOut(),(req, res, next) => {
   res.render("auth/signup");
 });
 
@@ -59,7 +59,7 @@ authRoutes.post("/signup", (req, res, next) => {
               "Algo salió mal y no pude guardar tu registro. Inténtalo de nuevo mas tarde"
           });
         } else {
-          res.redirect("/");
+          res.redirect("/login");
         }
       });
     })
@@ -68,7 +68,7 @@ authRoutes.post("/signup", (req, res, next) => {
     });
 });
 
-authRoutes.get("/login", (req, res, next) => {
+authRoutes.get("/login", ensureLogin.ensureLoggedOut(),(req, res, next) => {
   res.render("auth/login", { message: req.flash("error") });
 });
 
@@ -80,14 +80,6 @@ authRoutes.post(
     failureFlash: true,
     passReqToCallback: true
   })
-);
-
-authRoutes.get(
-  "/private-page",
-  ensureLogin.ensureLoggedIn(),
-  (req, res, next) => {
-    res.render("private", { user: req.user });
-  }
 );
 
 authRoutes.get("/logout", (req, res, next) => {
