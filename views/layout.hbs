@@ -33,7 +33,10 @@
         {{#if user}}
         <li class="nav-item">
          <a href="/changeImage"> <img class="img-profile" src="{{user.imgPath}}" alt="Profile User Pic"></a>
-          {{!-- <a class="nav-link" href="/signup"></a> --}}
+        </li>
+
+         <li class="nav-item">
+          <a class="nav-link " href="/changeProfile">{{user.username}}</a>
         </li>
         <li class="nav-item">
           <a class="nav-link " href="/changeProfile">Profile</a>
