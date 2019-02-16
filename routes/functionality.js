@@ -427,7 +427,7 @@ funcRoutes.get("/delegacion/:nombre", (req, res, next) => {
     })
     
     console.log(selectedMessage);
-    res.render("func/delegacion", { delegacionCompleteName, totalIncidents, recomendacion, tablaColonias, graphByTypeLabels, graphByTypeData, graphByDateLabels, graphByDateData, graphByColoniaLabels, graphByColoniaData, selectedMessage });
+    res.render("func/delegacion", {user, delegacionCompleteName, totalIncidents, recomendacion, tablaColonias, graphByTypeLabels, graphByTypeData, graphByDateLabels, graphByDateData, graphByColoniaLabels, graphByColoniaData, selectedMessage });
   });
 });
 
