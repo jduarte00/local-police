@@ -98,9 +98,12 @@
 
         <h3>Consulta la info por colonia</h3>
 
-        {{#each graphByColoniaLabels}}
-            <a href=""></a>
+       <div>
+{{#each tablaColonias}}
+            <a href="/colonia/{{this.href}}">{{this.nombre}}</a>
         {{/each}}
+       </div>
+        
        
-
-        <a href="/">Regresa a Casa :)</a>
+        <h3><a href="/">Regresa a Casa :)</a></h3>   
+        
