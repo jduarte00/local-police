@@ -1,4 +1,4 @@
-<div class="offset-sm-3">
+{{!-- <div class="offset-sm-3">
   <h2>Cambia tu foto de perfil</h2>
     <div class="form-group row">
         <img class="img-edit"src="{{user.imgPath}}" alt="Profile Picture">
@@ -11,5 +11,26 @@
      <input class="btn btn-success" type="submit" value="SAVE">
      </div>
   </form>
-</div>
+</div> --}}
 
+
+<div class="row">
+      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+        <div class="card card-signin my-5">
+          <div class="card-body">
+            <h5 class="card-title text-center">Cambia tu foto de perfil</h5>
+            <div class="form-group row">
+        <img class="img-edit"src="{{user.imgPath}}" alt="Profile Picture">
+    </div>
+
+          <form action="/changeImage" method="post" enctype="multipart/form-data" class="md-form">
+          <div>
+            <input  type="file" name="photo" class="btn">
+          <br><br>
+            <input class="btn btn-success" type="submit" value="SAVE">
+            </div>
+          </form>
+          </div>
+        </div>
+      </div>
+    </div>

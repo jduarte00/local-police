@@ -1,12 +1,14 @@
-<div class="offset-sm-3">
-  <div> 
-    <h2>Generar Reporte</h2>
-  </div>
-  <br>
-  <form action="/newIncident" method="post" class="form-inlin justify-content-center">
+
+
+<div class="row">
+      <div class="col-sm-9 col-md-7 col-lg-8 mx-auto">
+        <div class="card card-signin my-5">
+          <div class="card-body">
+            <h5 class="card-title text-center">Generar Reporte</h5>
+           <form action="/newIncident" method="post" class="form-inlin justify-content-center">
     <div class="form-group row">
-      <label for="delegacion" class="col-3 col-form-label" >Alcaldía</label>
-        <div class="col-9">
+      <label for="delegacion" class="col col-form-label" >Alcaldía</label>
+        <div class="col">
           <select name="delegacion" id="delegacion">
             <option value="null">Selecciona una delegacion</option>
             <option value="alvaro">Álvaro Obregón</option>
@@ -30,16 +32,16 @@
     </div>
 
     <div class="form-group row">
-      <label for="colonia" class="col-3 col-form-label" >Colonia</label>
-        <div class="col-9">
+      <label for="colonia" class="col col-form-label" >Colonia</label>
+        <div class="col">
           <select name="colonia" id="colonia">
           </select>
         </div>
     </div>
 
   <div class="form-group row">
-    <label for="type" class="col-3 col-form-label">Tipo de Delito</label>
-      <div class="col-9">
+    <label for="type" class="col col-form-label">Tipo de Delito</label>
+      <div class="col">
         <select name="type" id="type">
           <option value="null">Selecciona un tipo de delito</option>
           <option value="Robo a transeúnte con violencia">Robo a transeúnte con violencia</option>
@@ -57,32 +59,32 @@
       </div>
   </div>
   <div class="form-group row">
-    <label for="oficialNumber" class="col-3 col-form-label"  >Numero de Denuncia</label>
-      <div class ="col-9">
+    <label for="oficialNumber" class="col col-form-label"  >Numero de Denuncia</label>
+      <div class ="col">
         <input type="text" name="oficialNumber" value="" placeholder=" (opcional)">
       </div>
   </div>
   <div class="form-group row">
-    <label for="date" class="col-3 col-form-label">Fecha de Delito</label>
-        <div class ="col-9">
+    <label for="date" class="col col-form-label">Fecha y Hora del Delito</label>
+        <div class ="col">
           <input type="datetime-local" name="date" value="" required>
        </div>
   </div>
   <div class="form-group row">
-    <label for="additionalDetails" class="col-3 col-form-label">Descripción</label>
-      <div class ="col-9">
+    <label for="additionalDetails" class="col col-form-label">Descripción</label>
+      <div class ="col">
         <textarea name="additionalDetails" id="" cols="30" rows="10" placeholder="Descripción" maxlength="600" required></textarea>
       </div>
   </div>
 
 
   {{#if message}}
-    <div class="error-message form-group row col-3 alert alert-danger" role="alert">
+    <div class="error-message form-group row col-7 alert alert-danger" role="alert">
       {{message}}
     </div>
   {{/if}}
   <br>
-  <div class="form-group row col-8 btn-incident">
+  <div class="form-group row col- btn-incident">
     <input type="submit" value="Enviar Incidente" class="btn btn-success">
     <a href="/" class="btn btn-danger" >Cancelar</a>
    
@@ -93,6 +95,9 @@
  
 
 </form>
-</div>
+          </div>
+        </div>
+      </div>
+    </div>
 
- <script src="/javascripts/delegaciones.js"></script>
+     <script src="/javascripts/delegaciones.js"></script>

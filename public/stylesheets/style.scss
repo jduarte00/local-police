@@ -27,12 +27,12 @@ body {
 .container {
   margin-top: 50px; }
 
-
-
 .img-profile {
   width: 40px;
   height: 40px;
   border-radius: 50%; }
+
+
 
 .btn-incident {
   display: flex;
@@ -73,3 +73,61 @@ body {
     
   }
   
+  .chart-container3{
+    position: relative;
+    margin: auto;
+    width: 600px;
+    height: 500px;
+    
+  }
+  .chart-container4{
+    position: relative;
+    margin: auto;
+    width: 600px;
+    height: 500px;
+    
+  }
+  .h1-index{
+    
+    font-size: 91px
+
+  }
+  .img-index{
+    width: 200px; 
+    height: 200px ;
+  }
+
+  .btn-dele{
+    margin: 5px 5px;
+    background-color: #669EE6
+  }
+  .btn-rtnhome{
+   background-color: #1E2C4C
+  }
+  .text-colonia{
+    text-align: center
+  }
+  
+
+
+  
+.card-signin {
+  border: 0;
+  border-radius: 1rem;
+  box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
+}
+
+.card-signin .card-title {
+  margin-bottom: 2rem;
+  font-weight: 500;
+  font-size: 1.5rem;
+}
+
+.card-signin .card-body {
+  padding: 2rem;
+}
+input{
+ 
+  border-radius: 0.5rem;
+  
+}

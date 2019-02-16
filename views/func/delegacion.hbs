@@ -1,12 +1,12 @@
-<div class="container-fluid">
+<div class="">
     <div>
-        <h1>
+        <h1 class="text-colonia">
             <strong>
             {{delegacionCompleteName}}
             </strong>
         </h1>
 <br>
-        <h2>
+        <h2 class="text-colonia">
     El número total de incidentes registrados en esta Alacadía es de <strong>{{totalIncidents}}</strong>
         </h2>
     </div>
@@ -18,12 +18,12 @@
         
         <canvas id="graphByType"></canvas>
     </div>
-    <div class="col text-deleg">
+<div class="col text-deleg">
         <h3>La Alacadía {{delegacionCompleteName}}</h3>
         <p>
             {{selectedMessage}}
         </p>    
-    </div>
+</div>
 
 </div>
 </div>
@@ -43,18 +43,21 @@
 
         <h3>Recomendación</h3>
         <h1><strong>{{recomendacion}}</strong></h1>
+<br>
+<br>
 
-        <p>Consulta la info por colonia</p  >
+         <h4>Consulta la info por colonia</h4>
 
            <div>
 {{#each tablaColonias}}
-            <a href="/colonia/{{this.href}}">{{this.nombre}}</a>
+        
+            <a class="btn btn-primary btn-dele" href="/colonia/{{this.href}}">{{this.nombre}}</a>
         {{/each}}
        </div>
+       <br>
+    <a class="btn btn-primary btn-rtnhome" href="/">Regresa a Casa :)</a>
 
-        <a href="/">Regresa a Casa :)</a>
 
-{{!-- Script for graph by type --}}
 <script>
     var ctx = document.getElementById("graphByType");
     var myChart = new Chart(ctx, {
@@ -130,12 +133,4 @@
         'rgba(255, 159, 64, 1)',
         'rgba(255,99,132,1)']}]}});</script>
 
-        {{!-- <p>{{recomendacion}}</p>
-
-        <h3>Consulta la info por colonia</h3>
-
- 
-        
-       
-        <h3><a href="/">Regresa a Casa :)</a></h3>   
-         --}}
+      
