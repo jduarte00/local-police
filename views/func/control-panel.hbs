@@ -5,6 +5,8 @@
     <tr >
       <th scope="col-5">Lugar</th>
       <th scope="col-5">Fecha y hora</th>
+      <th scope="col-5">Tipo de Incidente</th>
+      <th scope="col-5">Borra tu incidente</th>
     </tr>
   </thead>
   <tbody>
@@ -13,6 +15,10 @@
       {{#each incidents}}
         <td><a href="/incidentes/view/{{this._id}}">{{this.delegacion}}</a></td>
        <td> {{this.date}}</td>
+       <td>{{this.type}}</td>
+       <td>
+         <a href="/incidentes/delete/{{this._id}}">Borrar Incidente</a>
+       </td>
    </tr>  
     {{/each}}
    
