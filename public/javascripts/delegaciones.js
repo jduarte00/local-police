@@ -1314,7 +1314,7 @@ let coloniasXochimilco = [
         return acc += `<option value="${current}">${current}</option>`
       }, ""); 
     break;
-    case event.target.value === "cuahutemoc":
+    case event.target.value === "cuauhtemoc":
       document.querySelector("#colonia").innerHTML = coloniasCuahtemoc.reduce((acc, current) => {
         return acc += `<option value="${current}">${current}</option>`
       }, ""); 

@@ -48,7 +48,7 @@ funcRoutes.get("/", (req, res, next) => {
        "nombre": "Coyoacán"},
       {"href": "cuajimalpa",
        "nombre": "Cuajimapla de Morelos"},
-      {"href": "cuahutemoc",
+      {"href": "cuauhtemoc",
        "nombre": "Cuauhtémoc"},
       {"href": "gustavo",
        "nombre": "Gustavo A. Madero"},
@@ -252,13 +252,15 @@ funcRoutes.get("/delegacion/:nombre", (req, res, next) => {
   let delegacionName = req.params.nombre;
   const user = req.user;
 
+  console.log(delegacionName);
+
   const messagesArray = {
     "alvaro" : "Está conformada por 257 colonias, fraccionamientos y barrios, siendo los más importantes: San Ángel, San Ángel Inn, Tlacopac (que significa lugar entre las jaras o carrizos), Ermita, Chimalistac, Guadalupe Inn, Florida, Jardines del Pedregal, y la mayoría de las colonias que forman la zona de Santa Fe. Además, esta jurisdicción cuenta con poblados de características rurales como San Bartolo Ameyalco y Santa Rosa Xochiac.",
     "azcapotzalco": "Muchas de las colonias actuales de la delegación tienen su origen en antiguos barrios que datan de la época prehispánica y colonial. Tal es el caso de San Miguel Amantla, San Pedro Xalpa, San Juan Tlihuaca, Santiago Ahuizotla, Santa Lucía Tomatlán, Santa Cruz Acayucan, San Francisco Tetecala, Santa María Malinalco, San Lucas Atenco, San Sebastián, Santo Tomás, Santa Catarina, San Andrés, Santa Bárbara, San Martín Xochinahuac, San Francisco Xocotitla, San Andrés de las Salinas, Santa Apolonia Tezcolco, San Marcos Ixquitlán, San Simón y Santo Domingo Huexotitlán. Muchos de ellos, convertidos en colonias, conservan su traza característica con calles y callejones estrechos",
     "benito": "Fue creada a principios de los años cuarenta, pero tomó sus límites territoriales el 29 de diciembre de 1970. Se encuentra en la región central de la ciudad y ocupa 26,63 km² a 2.232 msnm. Al norte, sus alcaldías vecinas son Miguel Hidalgo y Cuauhtémoc; al poniente la alcaldía Álvaro Obregón, al sur la alcaldía de Coyoacán y Álvaro Obregón, y al oriente las alcaldías de Iztacalco e Iztapalapa. La posición céntrica de la alcaldía Benito Juárez la convierte en cruce de caminos entre las diversas zonas de la ciudad, por lo mismo cuenta con abundantes vías de comunicación. ",
     "coyoacan": "Fue creada a principios de los años cuarenta, pero tomó sus límites territoriales el 29 de diciembre de 1970. Se encuentra en la región central de la ciudad y ocupa 26,63 km² a 2.232 msnm. Al norte, sus alcaldías vecinas son Miguel Hidalgo y Cuauhtémoc; al poniente la alcaldía Álvaro Obregón, al sur la alcaldía de Coyoacán y Álvaro Obregón, y al oriente las alcaldías de Iztacalco e Iztapalapa. La posición céntrica de la alcaldía Benito Juárez la convierte en cruce de caminos entre las diversas zonas de la ciudad, por lo mismo cuenta con abundantes vías de comunicación. ",
     "cuajimalpa": "La Alcaldía de Cuajimalpa de Morelos se ubica al poniente de la capital mexicana. Para el 2010 contaba con una población de 186,391 habitantes, la cual representó el 2.1% de la población en Ciudad de México.4​ Se divide territorialmente en 44 colonias y 59 Distritos Electorales.5​ En el año 2016, la ALDF incorporó a su lista de Pueblos Originarios, del todavía entonces Distrito Federal, a los pueblos de San Mateo Tlaltenango, San Lorenzo Acopilco, San Pedro Cuajimalpa y San Pablo Chimalpa6​ ubicados en esta demarcación.",
-    "cuahutemoc": "Colinda al norte con las demarcaciones territoriales de Azcapotzalco y Gustavo A. Madero, al sur con Iztacalco y Benito Juárez, al poniente con Miguel Hidalgo y al oriente con Venustiano Carranza. Es su nombre un reconocimiento al tlatoani mexica Cuauhtémoc, quien luchó en la batalla de México-Tenochtitlan. Esta demarcación abarca un total de 34 colonias.",
+    "cuauhtemoc": "Colinda al norte con las demarcaciones territoriales de Azcapotzalco y Gustavo A. Madero, al sur con Iztacalco y Benito Juárez, al poniente con Miguel Hidalgo y al oriente con Venustiano Carranza. Es su nombre un reconocimiento al tlatoani mexica Cuauhtémoc, quien luchó en la batalla de México-Tenochtitlan. Esta demarcación abarca un total de 34 colonias.",
     "gustavo": "Lleva el nombre de un político mexicano que participó en la Revolución Mexicana y quien fuera hermano del presidente Francisco I. Madero. Es la segunda alcaldía más poblada de la ciudad y anteriormente se le conocía como Tepeyac o Guadalupe Hidalgo. ",
     "iztacalco": "Localizada en la zona centro-oriente-SUR del Distrito Federal, limita al norte con las demarcaciones territoriales de Venustiano Carranza y Cuauhtémoc, al poniente con Benito Juárez, al sur con Iztapalapa y al oriente con el municipio de Nezahualcóyotl en el Estado de México. Es la delegación más pequeña de las dieciséis que comparten el territorio capitalino, con apenas 23,3 kilómetros cuadrados que albergan una población cercana a los 400 mil habitantes.",
     "iztapalapa": "Posee una superficie algo mayor a 116 km² y se localiza en el oriente de la capital mexicana, ocupando la porción sur del vaso del lago de Texcoco. En el censo de población y vivienda realizado por el INEGI en el año 2010 registró una población de 1 815 786 habitantes,3​ con esto es la demarcación más poblada de todo el país.",
@@ -279,7 +281,7 @@ funcRoutes.get("/delegacion/:nombre", (req, res, next) => {
   "benito": "Benito Juárez",
   "coyoacan": "Coyoacán",
   "cuajimalpa": "Cuajimapla de Morelos",
-  "cuahutemoc": "Cuauhtémoc",
+  "cuauhtemoc": "Cuauhtémoc",
   "gustavo": "Gustavo A. Madero",
   "iztacalco": "Iztacalco",
   "iztapalapa": "Iztapalapa",
@@ -298,6 +300,7 @@ funcRoutes.get("/delegacion/:nombre", (req, res, next) => {
 
   Incident.find({ delegacion: delegacionName }).then(incidents => {
     const totalIncidents = incidents.length;
+    console.log(incidents)
     const recomendaciones = [
       [3, "Esta leve, vete guapo"],
       [6, "Aguas!!, no te lleves el Rolex"],
