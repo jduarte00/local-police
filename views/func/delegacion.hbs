@@ -129,5 +129,16 @@
         'rgba(255, 159, 64, 1)',
         'rgba(255,99,132,1)']}]}});</script>
 
-      
+        <p>{{recomendacion}}</p>
+
+        <h3>Consulta la info por colonia</h3>
+
+       <div>
+{{#each tablaColonias}}
+            <a href="/colonia/{{this.href}}">{{this.nombre}}</a>
+        {{/each}}
+       </div>
+        
        
+        <h3><a href="/">Regresa a Casa :)</a></h3>   
+        
