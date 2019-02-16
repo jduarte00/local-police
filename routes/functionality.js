@@ -10,7 +10,7 @@ const uploadCloud = require("../config/cloudinary");
 funcRoutes.get("/", (req, res, next) => {
   Incident.find().then(incidents => {
     const totalIncidents = incidents.length;
-
+    const user = req.user;
     const conteoPorDelegacion = {
       "alvaro" : 0,
     "azcapotzalco":0,
@@ -98,7 +98,7 @@ funcRoutes.get("/", (req, res, next) => {
     let graphByDelegacionData = JSON.stringify(graphByDelegacionDataTemp);
 
 
-    res.render("index", {graphByDelegacionLabels, graphByDelegacionData, totalIncidents, nombresDeDelegaciones});
+    res.render("index", {graphByDelegacionLabels, graphByDelegacionData, totalIncidents, nombresDeDelegaciones,user});
   
   });
 });
@@ -121,6 +121,7 @@ funcRoutes.post("/newIncident", (req, res, next) => {
   const additionalDetails = req.body.additionalDetails;
   const userID = req.user._id;
   
+  
   const quitarEspacios = (string) => {
     let arrayOfLetters = string.split("");
     let arrayWithoutSpaces = [];
@@ -133,7 +134,7 @@ funcRoutes.post("/newIncident", (req, res, next) => {
     });
     return arrayWithoutSpaces.join("");
   }
-  const coloniaSinEspacios = quitarEspacios(colonia);
+  const coloniaSinEspacios = quitarEspacios(colonia,);
 
   const newIncident = new Incident({
     delegacion,
@@ -249,6 +250,7 @@ funcRoutes.get(
 
 funcRoutes.get("/delegacion/:nombre", (req, res, next) => {
   let delegacionName = req.params.nombre;
+  const user = req.user;
 
   const nombreDelegacion = {
     "alvaro" : "Álvaro Obregón",
@@ -404,7 +406,7 @@ funcRoutes.get("/delegacion/:nombre", (req, res, next) => {
     })
     
     
-    res.render("func/delegacion", { delegacionCompleteName, totalIncidents, recomendacion, tablaColonias, graphByTypeLabels, graphByTypeData, graphByDateLabels, graphByDateData, graphByColoniaLabels, graphByColoniaData });
+    res.render("func/delegacion", { user,delegacionCompleteName, totalIncidents, recomendacion, tablaColonias, graphByTypeLabels, graphByTypeData, graphByDateLabels, graphByDateData, graphByColoniaLabels, graphByColoniaData });
   });
 });
 
@@ -421,6 +423,7 @@ funcRoutes.get("/colonia/:name", (req, res, next)=>{
     const coloniaCompleteName = incidents[0].colonia;
     const totalIncidents = incidents.length;
     const delegacionName = incidents[0].delegacion;
+    const user = req.user;
 
     const recomendaciones = [
       [3, "Esta leve, vete guapo"],
@@ -515,7 +518,7 @@ funcRoutes.get("/colonia/:name", (req, res, next)=>{
     let graphByDateLabels = JSON.stringify(objectOfDates[0]);
     let graphByDateData = JSON.stringify(objectOfDates[1]);
 
-    res.render("func/colonia", {coloniaCompleteName,totalIncidents, graphByTypeLabels, graphByTypeData, graphByDateLabels, graphByDateData, recomendacion, delegacionName})
+    res.render("func/colonia", {user,coloniaCompleteName,totalIncidents, graphByTypeLabels, graphByTypeData, graphByDateLabels, graphByDateData, recomendacion, delegacionName})
   })
 });
 
