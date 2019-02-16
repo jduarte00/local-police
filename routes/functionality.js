@@ -17,7 +17,7 @@ funcRoutes.get("/", (req, res, next) => {
     "benito": 0,
     "coyoacan":0,
     "cuajimalpa": 0,
-    "cuahutemoc":0,
+    "cuauhtemoc":0,
     "gustavo":  0,
     "iztacalco":0,
     "iztapalapa":0,
@@ -78,7 +78,7 @@ funcRoutes.get("/", (req, res, next) => {
     "benito": "Benito Juárez",
     "coyoacan": "Coyoacán",
     "cuajimalpa": "Cuajimapla de Morelos",
-    "cuahutemoc": "Cuauhtémoc",
+    "cuauhtemoc": "Cuauhtémoc",
     "gustavo": "Gustavo A. Madero",
     "iztacalco": "Iztacalco",
     "iztapalapa": "Iztapalapa",
@@ -414,11 +414,14 @@ funcRoutes.get("/delegacion/:nombre", (req, res, next) => {
       if (!accum[current.colonia]) {
           accum[current.colonia] = current.coloniaSinEspacios;
         return accum;
+      } else {
+        return accum;
       }
     }, {}); 
     
     //console.log(objectOfTypes, temporalObjectOfDates, temporalObjectOfColonias);
 
+    console.log(coloniasSinEspaciosObject, "colonias sin espacios")
     const nombres = Object.keys(coloniasSinEspaciosObject);
 
     const tablaColonias = nombres.map(current=>{
