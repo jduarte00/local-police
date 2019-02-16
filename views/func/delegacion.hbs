@@ -1,17 +1,58 @@
-<h1>
-{{delegacionCompleteName}}
-</h1>
+<div class="container-fluid">
+    <div>
+        <h1>
+            <strong>
+            {{delegacionCompleteName}}
+            </strong>
+        </h1>
+<br>
+        <h2>
+    El número total de incidentes registrados en esta Alacadía es de <strong>{{totalIncidents}}</strong>
+        </h2>
+    </div>
 
-<h3>
-    El número total de incidentes registrados en esta delgación es de {{totalIncidents}}
-</h3>
 
+<div class="row">
+    <div class="chart-container col-8">
+        <h3>Incidentes por tipo en la Alacadía  {{delegacionCompleteName}}</h3>
+        
+        <canvas id="graphByType"></canvas>
+    </div>
+    <div class="col text-deleg">
+        <h3>La Alacadía {{delegacionCompleteName}}</h3>
+        <p>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit doloribus aut exercitationem. Omnis veritatis vitae iure officiis iusto quo eaque nihil temporibus, neque unde illo aperiam mollitia enim, assumenda numquam Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nemo ullam quae sit quam, blanditiis possimus dignissimos enim itaque beatae cupiditate voluptas asperiores, vero ducimus. At exercitationem voluptatum quis consequatur pariatur!
+        </p>    
+    </div>
 
-<p>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus reprehenderit in voluptatum adipisci, ducimus assumenda, nulla mollitia cum quae labore quas maxime eaque voluptates quam voluptas, cumque animi error alias.
-</p>
+</div>
+</div>
+<div class="row">
+    
+    <div class="chart-container2  col">
+       <h3>Serie Histórica de Incidentes para la Alacadía {{delegacionCompleteName}}</h3> 
+    <canvas  id="graphByDate"></canvas>
+    </div>
+{{!-- <h5>Número de Incidentes registrados por Colonia en la delegación {{delegacionCompleteName}}</h5> --}}
 
-<canvas width="50" height="50" id="graphByType"></canvas>
+    <div class="chart-container2 col">
+        <h3>Número de Incidentes registrados por Colonia en la Alacadía {{delegacionCompleteName}}</h3> 
+        <canvas id="graphByColonia"></canvas>
+    </div>
+</div >
+
+        <h3>Recomendación</h3>
+        <h1><strong>{{recomendacion}}</strong></h1>
+
+        <p>Consulta la info por colonia</p  >
+
+        {{#each graphByColoniaLabels}}
+            <a href=""></a>
+        {{/each}}
+       
+
+        <a href="/">Regresa a Casa :)</a>
+
 {{!-- Script for graph by type --}}
 <script>
     var ctx = document.getElementById("graphByType");
@@ -66,14 +107,8 @@
 </script>
 
 
-<canvas width="50" height="50" id="graphByDate"></canvas>
-{{!-- Script for graph by time --}}
-
 <script>new Chart(document.getElementById("graphByDate"), { "type": "line", "data": { "labels": {{{ graphByDateLabels }}}, "datasets": [{ "label": "Serie Histórica de Incidentes para la delegación {{delegacionCompleteName}}", "data": {{{ graphByDateData }}}, "fill": false, "borderColor": "rgb(75, 192, 192)", "lineTension": 0.1 }] }, "options": {stacked: true} });</script>
 
-<h1>Número de Incidentes registrados por Colonia en la delegación {{delegacionCompleteName}}</h1>
-<canvas width="50" height="50" id="graphByColonia"></canvas>
-{{!-- Script for graph by Colonia --}}
 
 <script>new Chart(document.getElementById("graphByColonia"), { "type": "doughnut", "data": { "labels": {{{ graphByColoniaLabels }}}, "datasets": [{ "label": "My First Dataset", "data": {{{ graphByColoniaData }}}, "backgroundColor": ['rgba(255,99,132,1)',
         'rgba(54, 162, 235, 1)',
@@ -94,13 +129,5 @@
         'rgba(255, 159, 64, 1)',
         'rgba(255,99,132,1)']}]}});</script>
 
-        <p>{{recomendacion}}</p>
-
-        <h3>Consulta la info por colonia</h3>
-
-        {{#each graphByColoniaLabels}}
-            <a href=""></a>
-        {{/each}}
+      
        
-
-        <a href="/">Regresa a Casa :)</a>
